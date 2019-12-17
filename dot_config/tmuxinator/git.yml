@@ -1,0 +1,10 @@
+# ~/.tmuxinator/git.yml
+
+name: git
+root: ~/projects/git.git/
+
+windows:
+  - project:
+      panes:
+        -
+  - man: git-man

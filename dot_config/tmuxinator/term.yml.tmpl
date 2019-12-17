@@ -1,0 +1,10 @@
+# ~/.tmuxinator/term.yml
+
+name: term
+root: ~/
+
+windows:
+  - term:
+  {{- if eq .chezmoi.hostname "epsilon" }}
+  - bluetooth: sudo bluetoothctl
+  {{- end }}

@@ -1,0 +1,15 @@
+# ~/.tmuxinator/phpzabbix.yml
+
+name: project-<%= ARGV[2] %>
+root: ~/projects/<%= ARGV[2] %>
+
+windows:
+  - git:
+      layout: aa88,209x72,0,0[209x48,0,0{157x48,0,0,0,51x48,158,0,3},209x23,0,49,2]
+      panes:
+        -
+        - watch_gst
+        - tig --all
+  - editor:
+      panes:
+        - vim

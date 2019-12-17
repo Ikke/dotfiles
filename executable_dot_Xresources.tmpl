@@ -1,0 +1,22 @@
+URxvt*saveLines: 65535
+URxvt*background: black
+URxvt*foreground: white
+URxvt*scrollBar: false
+URxvt.font: -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
+
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
+URxvt.perl-ext: default,url-select
+URxvt.url-select.launcher: {{ .defaults.browser }}
+URxvt.keysym.M-u: perl:url-select:select_next
+!URxvt.matcher.rend.0: Uline Bold fg7
+URxvt.matcher.button: 1
+
+!Fixing Home and End key (use Ctrl-V + key to find the code of the specific key)
+URxvt*keysym.Home: \033[7~
+URxvt*keysym.End: \033[8~
+
+URxvt*iso14755: false
+URxvt*iso14755_52: false
+
+URxvt*color4: #0080ff
+URxvt*color12: #0080ff

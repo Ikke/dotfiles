@@ -1,0 +1,17 @@
+[user]
+	name = Kevin Daudt
+	email = me@ikke.info
+[push]
+	default = upstream
+[alias]
+	ff = merge --ff-only
+    update-topic = "!f() { branch=$(git rev-parse --abbrev-ref ${1-HEAD} 2>/dev/null) || { echo \"Unknown branch \\\"$1\\\"\"; return 1; }; test \"$(git rev-parse $branch)\" = \"$(git rev-parse HEAD)\" && git checkout -B $branch $branch@{u} >/dev/null  || git branch -f $branch $branch@{u} >/dev/null; echo Updated branch to match upstream; }; f"
+    bdp = branch -d @{-1}
+
+[rebase]
+	autosquash = true
+[includeIf "gitdir:~/projects/alpine/"]
+	path = ~/projects/alpine/.gitconfig
+
+[fetch]
+	prune = true

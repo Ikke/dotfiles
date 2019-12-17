@@ -1,0 +1,23 @@
+xrdb -merge ~/.Xresources
+
+function run_if_exists () {
+  command=$1; shift;
+  which $command >/dev/null 2>&1 && $command "$@" &
+}
+
+run_if_exists dropbox
+run_if_exists skype
+run_if_exists urxvtd
+run_if_exists pulseaudio
+run_if_exists solaar
+run_if_exists numlockx
+run_if_exists xautolock -time 10 -notify 15 -notifier "notify-send -u critical -t 15000 \"About to lock screen\"" -locker "systemd_lock_screen"
+run_if_exists copyq
+
+xmodmap ~/.Xmodmap
+
+{{ if eq .chezmoi.hostname "zeta" -}}
+xrandr --output DVI-0 --mode 1680x1050 --output DVI-1 --mode 1920x1080 --right-of DVI-0
+{{- end }}
+
+exec awesome >logs/awesome.log 2>logs/awesome.error.log

@@ -1,0 +1,10 @@
+# ~/.tmuxinator/work.yml
+
+name: work-<%= @args[0] %>
+root: .
+
+windows:
+  - terminal:
+      layout: main-vertical
+      panes:
+        -
