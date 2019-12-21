@@ -1,15 +1,32 @@
 [user]
 	name = Kevin Daudt
 	email = me@ikke.info
+[alias]
+	lol = log --graph --decorate --oneline
+	branchdescr = !git config --get-regexp \"branch\\..*\\.description\"|sed \"s/^branch\\./* /\"
+	rebase-topic = "!f() { git rebase -i ${1-master} --onto $(git merge-base ${1-master} ${2-HEAD}); }; f"
+	commit-ref = show --no-patch --format=\"%h (%s, %ad)\" --date=\"short\"
+	ff = merge --ff-only
+	update-topic = "!f() { branch=$(git rev-parse --abbrev-ref ${1-HEAD} 2>/dev/null) || { echo \"Unknown branch \\\"$1\\\"\"; return 1; }; test \"$(git rev-parse $branch)\" = \"$(git rev-parse HEAD)\" && git checkout -B $branch $branch@{u} >/dev/null  || git branch -f $branch $branch@{u} >/dev/null; echo Updated branch to match upstream; }; f"
+	bdp = branch -d @{-1}
+[sendemail]
+	smtpServer = alpha.vpn.ikke.info
+	tocover = true
+	cccover = true
 [push]
 	default = upstream
-[alias]
-	ff = merge --ff-only
-    update-topic = "!f() { branch=$(git rev-parse --abbrev-ref ${1-HEAD} 2>/dev/null) || { echo \"Unknown branch \\\"$1\\\"\"; return 1; }; test \"$(git rev-parse $branch)\" = \"$(git rev-parse HEAD)\" && git checkout -B $branch $branch@{u} >/dev/null  || git branch -f $branch $branch@{u} >/dev/null; echo Updated branch to match upstream; }; f"
-    bdp = branch -d @{-1}
-
+[color]
+	ui = auto
+[diff]
+	compactionHeuristic = true
 [rebase]
 	autosquash = true
+[pretty]
+	commit-ref = %C(yellow)%h%Creset (%s, %ad)
+[merge]
+	tool = kdiff3
+[pull]
+	ff = only
 [includeIf "gitdir:~/projects/alpine/"]
 	path = ~/projects/alpine/.gitconfig
 
