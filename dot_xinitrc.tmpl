@@ -10,7 +10,7 @@ run_if_exists skype
 run_if_exists urxvtd
 run_if_exists solaar
 run_if_exists numlockx
-run_if_exists xautolock -time 10 -notify 15 -notifier "notify-send -u critical -t 15000 \"About to lock screen\"" -locker "systemd_lock_screen" -corners --00 -cornersize 15
+run_if_exists xautolock -time 15 -notify 15 -notifier "notify-send -u critical -t 15000 \"About to lock screen\"" -locker "systemd_lock_screen" -corners --00 -cornersize 15
 run_if_exists copyq
 run_if_exists cbatticon -u 30 -l 20 -r 10 -c /usr/local/bin/susp
 run_if_exists flameshot
