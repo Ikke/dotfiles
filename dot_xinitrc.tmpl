@@ -17,7 +17,7 @@ run_if_exists flameshot
 
 xmodmap ~/.Xmodmap
 
-{{- if eq .chezmoi.hostname "zeta" -}}
+{{ if eq .chezmoi.hostname "zeta" -}}
 xrandr --output DVI-0 --mode 1680x1050 --output DVI-1 --mode 1920x1080 --right-of DVI-0
 {{- end }}
 {{- if eq .chezmoi.hostname "epsilon" }}
