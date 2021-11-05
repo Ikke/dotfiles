@@ -1,0 +1,31 @@
+;;; .doom.d/config.el -*- lexical-binding: t; -*-
+
+;; Place your private configuration here
+
+(setq avy-all-windows t)
+
+(after! org
+  (setq org-agenda-files (list "~/org"))
+  (setq org-directory "~/org")
+)
+
+(setq projectile-project-search-path '(
+  "~/projects"
+  "~/projects/alpine"
+  "~/projects/alpine/infra"
+  "~/projects/alpine/infra/docker"
+))
+
+(add-to-list 'auto-mode-alist '("\\.bats\\'" . bats-mode))
+(add-to-list 'auto-mode-alist '("\\.do\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\APKBUILD\'" . sh-mode))
+
+(after! forge
+  (add-to-list `forge-alist `("gitlab.alpinelinux.org" "gitlab.alpinelinux.org/api/v4" "gitlab.alpinelinux.org" forge-gitlab-repository))
+)
+
+(add-hook 'markdown-mode-hook #'auto-fill-mode)
+
+(setq sh-indentation 4)
+(setq tab-width 4)
+(setq evil-escape-key-sequence "jj")
