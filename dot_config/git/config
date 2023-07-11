@@ -27,6 +27,7 @@
 	tool = kdiff3
 [pull]
 	ff = only
+	rebase = true
 [includeIf "gitdir:~/projects/alpine/"]
 	path = ~/projects/alpine/.gitconfig
 
