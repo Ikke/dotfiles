@@ -3,8 +3,6 @@
 name: build
 root: ~/
 
-
 windows:
-  - alpine: ssh -t delta 'docker attach alpine-dev'
-  - arch: ssh -t delta 'docker attach build'
-  - build: ssh build@ikke.alpin.pw
+  - build: ssh build@kdaudt.alpin.pw -t 'cd aports; zsh -l'
+  - docker:
